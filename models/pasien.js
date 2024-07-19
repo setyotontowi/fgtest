@@ -24,7 +24,7 @@ const Pasien = sequelize.define('Pasien', {
 
 Pasien.belongsTo(Kelurahan, {
     foreignKey: 'id_kelurahan',
-    as: 'kelurahan', // Alias for the city association
+    as: 'kelurahan'
 });
 
 module.exports = Pasien;

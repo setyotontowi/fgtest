@@ -14,4 +14,6 @@ const Provinsi = sequelize.define('Provinsi', {
     timestamps: false,
 });
 
+
+
 module.exports = Provinsi;

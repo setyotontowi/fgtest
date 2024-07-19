@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/database');
 const Pasien = require('../pasien');
+const Kecamatan = require('./kecamatan');
 
 const Kelurahan = sequelize.define('Kelurahan', {
     id: {
@@ -12,6 +13,9 @@ const Kelurahan = sequelize.define('Kelurahan', {
     idKecamatan: {
         field: 'id_kecamatan',
         type: Sequelize.INTEGER,
+        references: {
+
+        }
     },
     kode: Sequelize.INTEGER,
 }, {
@@ -19,5 +23,9 @@ const Kelurahan = sequelize.define('Kelurahan', {
     timestamps: false,
 });
 
+Kelurahan.belongsTo(Kecamatan, {
+    foreignKey: 'id_kecamatan',
+    as: 'kecamatan',
+});
 
 module.exports = Kelurahan;
