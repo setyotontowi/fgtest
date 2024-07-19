@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../../config/database');
+const Pasien = require('../pasien');
 
 const Kelurahan = sequelize.define('Kelurahan', {
     id: {
@@ -17,5 +18,6 @@ const Kelurahan = sequelize.define('Kelurahan', {
     tableName: 'dc_kelurahan',
     timestamps: false,
 });
+
 
 module.exports = Kelurahan;
