@@ -10,7 +10,7 @@ const Provinsi = sequelize.define('Provinsi', {
     nama: Sequelize.STRING,
     kode: Sequelize.INTEGER
 }, {
-    tableName: 'dc_Provinsi',
+    tableName: 'dc_provinsi',
     timestamps: false,
 });
 

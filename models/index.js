@@ -6,13 +6,15 @@ const Registration = require('./registration');
 const Kelurahan = require('./city/kelurahan');
 const Kecamatan = require('./city/kecamatan');
 const Kabupaten = require('./city/kabupaten');
+const Provinsi = require('./city/provinsi');
 
 const models = {
     Pasien,
     Registration,
     Kelurahan,
     Kecamatan,
-    Kabupaten
+    Kabupaten,
+    Provinsi
 };
 
 Object.keys(models).forEach(modelName => {

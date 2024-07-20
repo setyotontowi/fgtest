@@ -1,5 +1,5 @@
 const { desc } = require('drizzle-orm');
-const { Pasien, Registration, Kelurahan, Kecamatan } = require('../models')
+const { Pasien, Registration, Kelurahan, Kecamatan, Provinsi } = require('../models')
 const { col, fn, Op, literal } = require('sequelize');
 
 exports.registration = async (req, res) => {
@@ -50,3 +50,30 @@ exports.registration = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.addProvince = async (req, res) => {
+    try {
+        const { nama, kode } = req.body
+        console.log(req.body)
+
+        if (nama == null) {
+            throw error
+        }
+
+        const prov = Provinsi.build({
+            nama: nama,
+            kode: kode
+        })
+
+        prov.save()
+
+        res.status(201).json({
+            message: 'New province added successfully',
+            data: prov
+        });;
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
