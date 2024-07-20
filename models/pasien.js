@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/database');
-const Kelurahan = require('./city/kelurahan');
+const Registration = require('./registration');
 
 const Pasien = sequelize.define('Pasien', {
     id: {
@@ -22,9 +22,15 @@ const Pasien = sequelize.define('Pasien', {
     timestamps: false,
 });
 
-Pasien.belongsTo(Kelurahan, {
-    foreignKey: 'id_kelurahan',
-    as: 'kelurahan'
-});
+Pasien.associate = models => {
+    Pasien.belongsTo(models.Kelurahan, {
+        foreignKey: 'idKelurahan',
+        as: 'kelurahan'
+    })
+    Pasien.hasMany(models.Registration, {
+        foreignKey: 'idPasien',
+        as: 'registrasi'
+    });
+}
 
 module.exports = Pasien;

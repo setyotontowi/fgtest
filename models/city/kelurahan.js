@@ -23,9 +23,11 @@ const Kelurahan = sequelize.define('Kelurahan', {
     timestamps: false,
 });
 
-Kelurahan.belongsTo(Kecamatan, {
-    foreignKey: 'id_kecamatan',
-    as: 'kecamatan',
-});
+Kelurahan.assosiate = (models) => {
+    Kelurahan.hasMany(models.Pasien, {
+        foreignKey: 'idKelurahan',
+    })
+}
+
 
 module.exports = Kelurahan;

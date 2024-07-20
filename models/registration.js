@@ -1,49 +1,50 @@
-const Sequelize = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Kelurahan = require('./city/kelurahan');
-const Pasien = require('./pasien')
+const Pasien = require('./pasien');  // Import Pasien model to use in association
 
 const Registration = sequelize.define('Registration', {
     id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
     noRegister: {
         field: 'no_register',
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
     },
     idPasien: {
         field: 'id_pasien',
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
-            model: 'dc_pasien',
+            model: 'Pasien',
             key: 'id'
         }
     },
     regDate: {
         field: 'waktu_daftar',
-        type: Sequelize.DATE
+        type: DataTypes.DATE
     },
     outDate: {
         field: 'waktu_keluar',
-        type: Sequelize.DATE
+        type: DataTypes.DATE
     },
-    jenis: Sequelize.STRING,
+    jenis: DataTypes.STRING,
     jenisIgd: {
         field: 'jenis_igd',
-        type: Sequelize.STRING
+        type: DataTypes.STRING
     },
-    status: Sequelize.STRING,
-    langsung: Sequelize.STRING
+    status: DataTypes.STRING,
+    langsung: DataTypes.STRING
 }, {
     tableName: 'dc_pendaftaran',
     timestamps: false,
 });
 
-Registration.belongsTo(Pasien, {
-    foreignKey: 'id_pasien',
-    as: 'pasien', // Alias for the city association
-});
+Registration.associate = (models) => {
+    Registration.belongsTo(models.Pasien, {
+        foreignKey: 'id_pasien',
+        as: 'pasien',
+    });
+};
 
-module.exports = Pasien;
+module.exports = Registration;
