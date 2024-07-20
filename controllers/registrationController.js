@@ -1,4 +1,5 @@
-const { Pasien, Registration, Kelurahan } = require('../models')
+const { desc } = require('drizzle-orm');
+const { Pasien, Registration, Kelurahan, Kecamatan } = require('../models')
 const { col, fn, Op, literal } = require('sequelize');
 
 exports.registration = async (req, res) => {
@@ -24,7 +25,12 @@ exports.registration = async (req, res) => {
                 include: {
                     model: Kelurahan,
                     as: 'kelurahan',
-                    attributes: ['nama']
+                    attributes: ['nama'],
+                    include: {
+                        model: Kecamatan,
+                        attributes: ['nama'],
+                        as: 'kecamatan'
+                    }
                 }
             },
             where: {
@@ -33,7 +39,8 @@ exports.registration = async (req, res) => {
                     [Op.gt]: new Date('2022-01-01')
                 }
             },
-            group: ['pasien.kelurahan.nama']
+            group: ['pasien.kelurahan.nama'],
+            order: [['total', 'DESC']],
         });
 
         res.json(rows);

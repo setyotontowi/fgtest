@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/database');
-const Pasien = require('../pasien');
-const Kecamatan = require('./kecamatan');
 
 const Kelurahan = sequelize.define('Kelurahan', {
     id: {
@@ -14,7 +12,8 @@ const Kelurahan = sequelize.define('Kelurahan', {
         field: 'id_kecamatan',
         type: Sequelize.INTEGER,
         references: {
-
+            model: 'Kecamatan',
+            key: 'id'
         }
     },
     kode: Sequelize.INTEGER,
@@ -23,7 +22,12 @@ const Kelurahan = sequelize.define('Kelurahan', {
     timestamps: false,
 });
 
-Kelurahan.assosiate = (models) => {
+Kelurahan.associate = (models) => {
+    Kelurahan.belongsTo(models.Kecamatan, {
+        foreignKey: 'id_kecamatan',
+        as: 'kecamatan'
+    });
+
     Kelurahan.hasMany(models.Pasien, {
         foreignKey: 'idKelurahan',
     })

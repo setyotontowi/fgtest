@@ -27,6 +27,7 @@ Pasien.associate = models => {
         foreignKey: 'idKelurahan',
         as: 'kelurahan'
     })
+
     Pasien.hasMany(models.Registration, {
         foreignKey: 'idPasien',
         as: 'registrasi'

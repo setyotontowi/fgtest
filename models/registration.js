@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Pasien = require('./pasien');  // Import Pasien model to use in association
+const Pasien = require('./pasien');
 
 const Registration = sequelize.define('Registration', {
     id: {

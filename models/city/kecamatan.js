@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/database');
-const Kabupaten = require('./kabupaten');
 
 const Kecamatan = sequelize.define('Kecamatan', {
     id: {
@@ -20,9 +19,15 @@ const Kecamatan = sequelize.define('Kecamatan', {
     timestamps: false,
 });
 
-Kecamatan.belongsTo(Kabupaten, {
-    foreignKey: 'id_kabupaten',
-    as: 'kabupaten'
-});
+Kecamatan.associate = (models) => {
+    Kecamatan.belongsTo(models.Kabupaten, {
+        foreignKey: 'id_kabupaten',
+        as: 'kabupaten'
+    });
+
+    Kecamatan.hasMany(models.Kelurahan, {
+        foreignKey: 'id_kecamatan',
+    });
+}
 
 module.exports = Kecamatan;
