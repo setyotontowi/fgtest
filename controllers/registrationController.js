@@ -138,3 +138,44 @@ exports.registrationReportKabupaten = async (req, res) => {
     }
 
 }
+
+exports.registrationReportKelurahanId = async (req, res) => {
+    try {
+        req.query.region = "kelurahan"
+        req.query.id = req.params.id
+
+        this.registration(req, res)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}
+
+exports.registrationReportKecamatanId = async (req, res) => {
+    try {
+        req.query.region = "kecamatan"
+        req.query.id = req.params.id
+
+        this.registration(req, res)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+exports.registrationReportKabupatenId = async (req, res) => {
+    try {
+        req.query.region = "kabupaten"
+        req.query.id = req.params.id
+
+        this.registration(req, res)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}

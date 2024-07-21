@@ -52,6 +52,9 @@ PORT=3000
 1.  endpoint `/api/registration/report/kabupaten?startDate='2022-01-01'&endDate='2022-10-31'&pageSize=10&provinsiId=98`
 2.  endpoint `/api/registration/report/kecamatan?startDate='2022-01-01'&endDate='2022-10-31'&pageSize=10&kabupatenId=98`
 3.  endpoint `/api/registration/report/kelurahan?startDate='2022-01-01'&endDate='2022-10-31'&pageSize=10&kecamatanId=98`
+4.  endpoint `/api/registration/report/kabupaten/:id?startDate='2022-01-01'&endDate='2022-10-31
+5.  endpoint `/api/registration/report/kecamatan/:id?startDate='2022-01-01'&endDate='2022-10-31
+6.  endpoint `/api/registration/report/kelurahan/:id?startDate='2022-01-01'&endDate='2022-10-31
 
 additional queryParam 
 pageSize, page
