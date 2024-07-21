@@ -198,6 +198,105 @@ exports.registrationReportKabupatenAll = async (req, res) => {
     }
 }
 
+exports.registrationReportKecamatanAllId = async (req, res) => {
+    try {
+        req.query.region = "kecamatan"
+        req.query.id = req.params.id
+        req.query.page = req.query.page ? req.query.page : 1
+        req.query.pageSize = req.query.pageSize ? req.query.pageSize : 5
+
+        const kecamatan = await fetchData(req)
+
+        let data = []
+
+        for (const k of kecamatan) {
+            const idKecamatan = k.dataValues.kecamatanId
+            const item = {
+                id: idKecamatan,
+                kecamatanName: k.dataValues.kecamatanName,
+                kabupatenId: k.dataValues.kabupatenId,
+                total: k.dataValues.total,
+                percentage: k.dataValues.percentage,
+                kelurahan: []
+            };
+
+            if (idKecamatan) {
+                req.query.region = "kelurahan";
+                req.query.idKecamatan = idKecamatan;
+                req.query.id = null;
+                req.query.page = null;
+                req.query.pageSize = null;
+
+                const kelurahan = await fetchData(req);
+                console.log(`kelurahans ${kelurahan} idkecamatan: ${idKecamatan}`)
+
+                item.kelurahan = kelurahan.map(l => ({
+                    kelurahanId: l.dataValues.kelurahanId,
+                    kelurahanName: l.dataValues.kelurahanName,
+                    total: l.dataValues.total,
+                    percentage: l.dataValues.percentage
+                }));
+            }
+
+            data.push(item);
+        }
+
+        res.json(data)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+exports.registrationReportKabupatenAllId = async (req, res) => {
+    try {
+        req.query.region = "kabupaten"
+        req.query.id = req.params.id
+
+        const kabupaten = await fetchData(req)
+
+        let data = []
+
+        for (const k of kabupaten) {
+            const idKabupaten = k.dataValues.kabupatenId
+            const item = {
+                id: idKabupaten,
+                kabupatenName: k.dataValues.kabupatenName,
+                kabupatenId: k.dataValues.kabupatenId,
+                total: k.dataValues.total,
+                percentage: k.dataValues.percentage,
+                kecamatan: []
+            };
+
+            if (idKabupaten) {
+                req.query.region = "kecamatan";
+                req.query.idKabupaten = idKabupaten;
+                req.query.id = null;
+                req.query.page = null;
+                req.query.pageSize = null;
+
+                const kecamatan = await fetchData(req);
+
+                item.kecamatan = kecamatan.map(l => ({
+                    kecamatanId: l.dataValues.kecamatanId,
+                    kecamatanName: l.dataValues.kecamatanName,
+                    total: l.dataValues.total,
+                    percentage: l.dataValues.percentage
+                }));
+            }
+
+            data.push(item);
+        }
+
+        res.json(data)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 async function fetchData(req) {
     const { startDate, endDate, region, parentRegionId, id } = req.query
 

@@ -11,5 +11,7 @@ router.get('/registration/report/kelurahan/:id', controller.registrationReportKe
 router.get('/registration/report/kelurahan', controller.registrationReportKelurahan)
 router.get('/registration/report/all/kecamatan', controller.registrationReportKecamatanAll)
 router.get('/registration/report/all/kabupaten', controller.registrationReportKabupatenAll)
+router.get('/registration/report/all/kecamatan/:id', controller.registrationReportKecamatanAllId)
+router.get('/registration/report/all/kabupaten/:id', controller.registrationReportKabupatenAllId)
 
 module.exports = router
