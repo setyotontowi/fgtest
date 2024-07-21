@@ -56,6 +56,8 @@ PORT=3000
 5.  endpoint `/api/registration/report/kecamatan/:id?startDate='2022-01-01'&endDate='2022-10-31
 6.  endpoint `/api/registration/report/kelurahan/:id?startDate='2022-01-01'&endDate='2022-10-31
 
-additional queryParam 
+# additional queryParam 
 pageSize, page
+
+
 ```
