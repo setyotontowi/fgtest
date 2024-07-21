@@ -21,7 +21,7 @@ To install the dependencies, run the following command in the root directory of 
 This command installs all the packages listed in the `package.json` file.
 
 ```bash
-npm install #for development purposes
+npm install
 npm start
 ```
 
