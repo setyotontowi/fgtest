@@ -9,5 +9,7 @@ router.get('/registration/report/kecamatan/:id', controller.registrationReportKe
 router.get('/registration/report/kecamatan/', controller.registrationReportKecamatan)
 router.get('/registration/report/kelurahan/:id', controller.registrationReportKelurahanId)
 router.get('/registration/report/kelurahan', controller.registrationReportKelurahan)
+router.get('/registration/report/all/kecamatan', controller.registrationReportKecamatanAll)
+router.get('/registration/report/all/kabupaten', controller.registrationReportKabupatenAll)
 
 module.exports = router
