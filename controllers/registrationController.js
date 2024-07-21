@@ -1,20 +1,30 @@
-const { desc } = require('drizzle-orm');
-const { Pasien, Registration, Kelurahan, Kecamatan } = require('../models')
+const { Pasien, Registration, Kelurahan, Kecamatan, Kabupaten } = require('../models')
 const { col, fn, Op, literal } = require('sequelize');
 
 exports.registration = async (req, res) => {
     try {
+        const { startDate, endDate, region } = req.body
+
         const page = parseInt(req.query.page) || 1;
         const pageSize = parseInt(req.query.pageSize) || 10;
         const offset = (page - 1) * pageSize;
         const limit = pageSize;
 
+        let regional = 'pasien.kelurahan.nama'
+        switch (region) {
+            case 'kecamatan': { regional = 'pasien.kelurahan.kecamatan'; break; }
+            case 'kabupaten': { regional = 'pasien.kelurahan.kecamatan.kabupaten'; break; }
+        }
+
+        const start = startDate ? new Date(startDate) : new Date(currentYear, 0, 1);
+        const end = endDate ? new Date(endDate) : new Date(currentYear, 11, 31);
+
         const totalReg = await Registration.count()
 
         const rows = await Registration.findAll({
             attributes: [
-                [col('pasien.kelurahan.id'), 'kelurahanId'],
-                [col('pasien.kelurahan.nama'), 'kelurahanName'],
+                [col(`${regional}.id`), `${region}Id`],
+                [col(`${regional}.nama`), `${region}Name`],
                 [fn('COUNT', '*'), 'total'],
                 [literal(`COUNT(*) / ${totalReg} * 100`), 'percentage']
             ],
@@ -29,21 +39,29 @@ exports.registration = async (req, res) => {
                     include: {
                         model: Kecamatan,
                         attributes: ['nama'],
-                        as: 'kecamatan'
+                        as: 'kecamatan',
+                        include: {
+                            model: Kabupaten,
+                            attributes: ['nama'],
+                            as: 'kabupaten'
+                        },
+
                     }
                 }
             },
             where: {
                 regDate: {
-                    [Op.lt]: new Date('2022-10-31'),
-                    [Op.gt]: new Date('2022-01-01')
+                    [Op.lt]: new Date(end),
+                    [Op.gt]: new Date(start)
                 }
             },
-            group: ['pasien.kelurahan.nama'],
+            group: [`${regional}.nama`],
             order: [['total', 'DESC']],
         });
 
-        res.json(rows);
+        res.json({
+            'data': rows
+        });
 
     } catch (error) {
         console.error(error);
