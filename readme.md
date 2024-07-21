@@ -47,7 +47,7 @@ PORT=3000
 
 
 ## API Documentation
-```json
+```
 1.  endpoint `/api/registration/report`
 
 request body (all optional)
