@@ -10,11 +10,22 @@ exports.registration = async (req, res) => {
         const offset = (page - 1) * pageSize;
         const limit = pageSize;
 
-        let regional = 'pasien.kelurahan.nama'
+        let regional = 'pasien.kelurahan'
+        let regionalParent = 'kecamatan'
         switch (region) {
-            case 'kecamatan': { regional = 'pasien.kelurahan.kecamatan'; break; }
-            case 'kabupaten': { regional = 'pasien.kelurahan.kecamatan.kabupaten'; break; }
+            case 'kecamatan': {
+                regional = 'pasien.kelurahan.kecamatan';
+                regionalParent = 'kabupaten'
+                break;
+            }
+            case 'kabupaten': {
+                regional = 'pasien.kelurahan.kecamatan.kabupaten';
+                regionalParent = 'provinsi'
+                break;
+            }
         }
+
+        console.log(`region ${region}`);
 
         const start = startDate ? new Date(startDate) : new Date(currentYear, 0, 1);
         const end = endDate ? new Date(endDate) : new Date(currentYear, 11, 31);
@@ -25,6 +36,7 @@ exports.registration = async (req, res) => {
             attributes: [
                 [col(`${regional}.id`), `${region}Id`],
                 [col(`${regional}.nama`), `${region}Name`],
+                [col(`id_${regionalParent}`), `${regionalParent}Id`],
                 [fn('COUNT', '*'), 'total'],
                 [literal(`COUNT(*) / ${totalReg} * 100`), 'percentage']
             ],
@@ -35,14 +47,14 @@ exports.registration = async (req, res) => {
                 include: {
                     model: Kelurahan,
                     as: 'kelurahan',
-                    attributes: ['nama'],
+                    attributes: ['nama', 'id', 'id_kecamatan'],
                     include: {
                         model: Kecamatan,
-                        attributes: ['nama'],
+                        attributes: ['nama', 'id', 'id_kabupaten'],
                         as: 'kecamatan',
                         include: {
                             model: Kabupaten,
-                            attributes: ['nama'],
+                            attributes: ['nama', 'id', 'id_provinsi'],
                             as: 'kabupaten'
                         },
 
