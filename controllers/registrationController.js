@@ -3,7 +3,7 @@ const { col, fn, Op, literal } = require('sequelize');
 
 exports.registration = async (req, res) => {
     try {
-        const { startDate, endDate, region } = req.body
+        const { startDate, endDate, region, id } = req.body
 
         const page = parseInt(req.query.page) || 1;
         const pageSize = parseInt(req.query.pageSize) || 10;
@@ -31,6 +31,17 @@ exports.registration = async (req, res) => {
         const end = endDate ? new Date(endDate) : new Date(currentYear, 11, 31);
 
         const totalReg = await Registration.count()
+
+        const whereClause = {
+            regDate: {
+                [Op.lt]: end,
+                [Op.gt]: start
+            }
+        };
+
+        if (id) {
+            whereClause[`$${regional}.id_kecamatan$`] = id;
+        }
 
         const rows = await Registration.findAll({
             attributes: [
@@ -61,12 +72,7 @@ exports.registration = async (req, res) => {
                     }
                 }
             },
-            where: {
-                regDate: {
-                    [Op.lt]: new Date(end),
-                    [Op.gt]: new Date(start)
-                }
-            },
+            where: whereClause,
             group: [`${regional}.nama`],
             order: [['total', 'DESC']],
         });
