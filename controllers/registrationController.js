@@ -3,12 +3,21 @@ const { col, fn, Op, literal } = require('sequelize');
 
 exports.registration = async (req, res) => {
     try {
-        const { startDate, endDate, region, id } = req.body
+        const { startDate, endDate, region, parentRegionId, id } = req.query
 
-        const page = parseInt(req.query.page) || 1;
-        const pageSize = parseInt(req.query.pageSize) || 10;
-        const offset = (page - 1) * pageSize;
-        const limit = pageSize;
+        const page = parseInt(req.query.page);
+        const pageSize = parseInt(req.query.pageSize);
+        let offset = null
+        let limit = null
+        if (page) offset = (page - 1) * pageSize;
+        if (pageSize) limit = pageSize;
+
+        const currentYear = new Date().getFullYear();
+        const start = startDate ? new Date(startDate) : new Date(currentYear, 0, 1);
+        const end = endDate ? new Date(endDate) : new Date(currentYear, 11, 31);
+
+        req.body.startDate = start
+        req.body.endDate = end
 
         let regional = 'pasien.kelurahan'
         let regionalParent = 'kecamatan'
@@ -25,11 +34,6 @@ exports.registration = async (req, res) => {
             }
         }
 
-        console.log(`region ${region}`);
-
-        const start = startDate ? new Date(startDate) : new Date(currentYear, 0, 1);
-        const end = endDate ? new Date(endDate) : new Date(currentYear, 11, 31);
-
         const totalReg = await Registration.count()
 
         const whereClause = {
@@ -39,11 +43,17 @@ exports.registration = async (req, res) => {
             }
         };
 
+        if (parentRegionId) {
+            whereClause[`$${regional}.${regionalParent}.id$`] = parentRegionId;
+        }
+
         if (id) {
-            whereClause[`$${regional}.id_kecamatan$`] = id;
+            whereClause[`$${regional}.id$`] = id
         }
 
         const rows = await Registration.findAll({
+            offset,
+            limit,
             attributes: [
                 [col(`${regional}.id`), `${region}Id`],
                 [col(`${regional}.nama`), `${region}Name`],
@@ -86,3 +96,45 @@ exports.registration = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.registrationReportKelurahan = async (req, res) => {
+    try {
+        req.query.region = "kelurahan"
+        req.query.parentRegionId = req.query.kecamatanId
+
+        this.registration(req, res)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}
+
+exports.registrationReportKecamatan = async (req, res) => {
+    try {
+        req.query.region = "kecamatan"
+        req.query.parentRegionId = req.query.kabupatenId
+
+        this.registration(req, res)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}
+
+exports.registrationReportKabupaten = async (req, res) => {
+    try {
+        req.query.region = "kabupaten"
+        req.query.parentRegionId = req.query.provinsiId
+
+        this.registration(req, res)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}
