@@ -129,17 +129,21 @@ exports.registrationReportKecamatanAll = async (req, res) => {
 
                 const kelurahan = await fetchData(req);
 
+                const dataKelurahan = []
                 for (const l of kelurahan) {
                     const jenisPoli = await fetchJenisPoli(l.dataValues.kelurahanId)
 
-                    item.kelurahan = {
+                    const k = {
                         kelurahanId: l.dataValues.kelurahanId,
                         kelurahanName: l.dataValues.kelurahanName,
-                        total: l.dataValues.total,
                         percentage: l.dataValues.percentage,
-                        jenisPoli: jenisPoli
+                        poliklinik: jenisPoli['poliklinik'],
+                        igd: jenisPoli['igd'],
+                        total: l.dataValues.total,
                     };
+                    dataKelurahan.push(k)
                 }
+                item.kelurahan = dataKelurahan
             }
 
             data.push(item);
@@ -234,8 +238,6 @@ exports.registrationReportKecamatanAllId = async (req, res) => {
 
                 const kelurahan = await fetchData(req);
 
-                console.log(kelurahan.length)
-
                 const dataKelurahan = []
                 for (const l of kelurahan) {
 
@@ -296,7 +298,6 @@ exports.registrationReportKabupatenAllId = async (req, res) => {
                 const kecamatan = await fetchData(req);
 
                 item.kecamatan = kecamatan.map(l => ({
-                    jenisIgd: l.dataValues.jenisIgd,
                     kecamatanId: l.dataValues.kecamatanId,
                     kecamatanName: l.dataValues.kecamatanName,
                     total: l.dataValues.total,
@@ -371,7 +372,6 @@ async function fetchData(req) {
             [col(`${regional}.id`), `${region}Id`],
             [col(`${regional}.nama`), `${region}Name`],
             [col(`id_${regionalParent}`), `${regionalParent}Id`],
-            'jenisIgd',
             [fn('COUNT', '*'), 'total'],
             [literal(`COUNT(*) / ${totalReg} * 100`), 'percentage']
         ],
@@ -397,7 +397,7 @@ async function fetchData(req) {
         },
         where: whereClause,
         having: [{
-            percentage: {
+            total: {
                 [Op.gt]: 0
             }
         }],
