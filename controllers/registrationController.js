@@ -308,7 +308,7 @@ exports.registrationReportKabupatenAllId = async (req, res) => {
             data.push(item);
         }
 
-        return rows
+        res.json(data)
 
     } catch (error) {
         console.error(error);
