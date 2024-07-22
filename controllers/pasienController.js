@@ -1,7 +1,5 @@
-const Patient = require('../models/pasien');
-const Kelurahan = require('../models/city/kelurahan');
-const Kecamatan = require('../models/city/kecamatan');
 const { col, fn } = require('sequelize');
+const { Pasien, Kelurahan, Kecamatan } = require('../models');
 
 exports.getPatients = async (req, res) => {
     try {
@@ -10,7 +8,7 @@ exports.getPatients = async (req, res) => {
         const offset = (page - 1) * pageSize;
         const limit = pageSize;
 
-        const { count, rows } = await Patient.findAndCountAll({
+        const { count, rows } = await Pasien.findAndCountAll({
             offset,
             limit,
             include: {
@@ -54,7 +52,7 @@ exports.patientOrigin = async (req, res) => {
         const offset = (page - 1) * pageSize;
         const limit = pageSize;
 
-        const rows = await Patient.findAll({
+        const rows = await Pasien.findAll({
             offset,
             limit,
             attributes: [
@@ -82,3 +80,25 @@ exports.patientOrigin = async (req, res) => {
     }
 
 };
+
+exports.addPatient = async (req, res) => {
+    try {
+        const { nama, idKelurahan } = req.body
+
+        const row = Pasien.build({
+            nama: nama,
+            idKelurahan: idKelurahan
+        })
+
+        row.save();
+
+        res.status(201).json({
+            message: 'Patient added successfully',
+            data: row
+        });
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
