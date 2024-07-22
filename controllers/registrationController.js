@@ -1,5 +1,5 @@
 const { Pasien, Registration, Kelurahan, Kecamatan, Kabupaten } = require('../models')
-const { col, fn, Op, literal } = require('sequelize');
+const { col, fn, Op, literal, where } = require('sequelize');
 
 exports.registration = async (req, res) => {
     try {
@@ -129,12 +129,17 @@ exports.registrationReportKecamatanAll = async (req, res) => {
 
                 const kelurahan = await fetchData(req);
 
-                item.kelurahan = kelurahan.map(l => ({
-                    kelurahanId: l.dataValues.kelurahanId,
-                    kelurahanName: l.dataValues.kelurahanName,
-                    total: l.dataValues.total,
-                    percentage: l.dataValues.percentage
-                }));
+                for (const l of kelurahan) {
+                    const jenisPoli = await fetchJenisPoli(l.dataValues.kelurahanId)
+
+                    item.kelurahan = {
+                        kelurahanId: l.dataValues.kelurahanId,
+                        kelurahanName: l.dataValues.kelurahanName,
+                        total: l.dataValues.total,
+                        percentage: l.dataValues.percentage,
+                        jenisPoli: jenisPoli
+                    };
+                }
             }
 
             data.push(item);
@@ -228,14 +233,26 @@ exports.registrationReportKecamatanAllId = async (req, res) => {
                 req.query.pageSize = null;
 
                 const kelurahan = await fetchData(req);
-                console.log(`kelurahans ${kelurahan} idkecamatan: ${idKecamatan}`)
 
-                item.kelurahan = kelurahan.map(l => ({
-                    kelurahanId: l.dataValues.kelurahanId,
-                    kelurahanName: l.dataValues.kelurahanName,
-                    total: l.dataValues.total,
-                    percentage: l.dataValues.percentage
-                }));
+                console.log(kelurahan.length)
+
+                const dataKelurahan = []
+                for (const l of kelurahan) {
+
+                    const jenisPoli = await fetchJenisPoli(l.dataValues.kelurahanId)
+
+                    const k = {
+                        kelurahanId: l.dataValues.kelurahanId,
+                        kelurahanName: l.dataValues.kelurahanName,
+                        percentage: l.dataValues.percentage,
+                        poliklinik: jenisPoli['poliklinik'],
+                        igd: jenisPoli['igd'],
+                        total: l.dataValues.total,
+                    };
+                    dataKelurahan.push(k)
+                }
+
+                item.kelurahan = dataKelurahan
             }
 
             data.push(item);
@@ -279,6 +296,7 @@ exports.registrationReportKabupatenAllId = async (req, res) => {
                 const kecamatan = await fetchData(req);
 
                 item.kecamatan = kecamatan.map(l => ({
+                    jenisIgd: l.dataValues.jenisIgd,
                     kecamatanId: l.dataValues.kecamatanId,
                     kecamatanName: l.dataValues.kecamatanName,
                     total: l.dataValues.total,
@@ -289,7 +307,7 @@ exports.registrationReportKabupatenAllId = async (req, res) => {
             data.push(item);
         }
 
-        res.json(data)
+        return rows
 
     } catch (error) {
         console.error(error);
@@ -299,8 +317,6 @@ exports.registrationReportKabupatenAllId = async (req, res) => {
 
 async function fetchData(req) {
     const { startDate, endDate, region, parentRegionId, id } = req.query
-
-    console.log(region)
 
     const page = parseInt(req.query.page);
     const pageSize = parseInt(req.query.pageSize);
@@ -355,6 +371,7 @@ async function fetchData(req) {
             [col(`${regional}.id`), `${region}Id`],
             [col(`${regional}.nama`), `${region}Name`],
             [col(`id_${regionalParent}`), `${regionalParent}Id`],
+            'jenisIgd',
             [fn('COUNT', '*'), 'total'],
             [literal(`COUNT(*) / ${totalReg} * 100`), 'percentage']
         ],
@@ -375,14 +392,57 @@ async function fetchData(req) {
                         attributes: ['nama', 'id', 'id_provinsi'],
                         as: 'kabupaten'
                     },
-
                 }
             }
         },
         where: whereClause,
+        having: [{
+            percentage: {
+                [Op.gt]: 0
+            }
+        }],
         group: [`${regional}.nama`],
         order: [['total', 'DESC']],
     });
 
     return rows
+}
+
+async function fetchJenisPoli(idKelurahan) {
+    try {
+        const rows = await Registration.findAll({
+            attributes: [
+                'jenis',
+                [fn('COUNT', '*'), 'total']
+            ],
+            include: {
+                model: Pasien,
+                as: 'pasien',
+                attributes: [],
+                include: {
+                    model: Kelurahan,
+                    attributes: [],
+                    as: 'kelurahan'
+                }
+            },
+            where: {
+                [`$pasien->kelurahan.id$`]: idKelurahan
+            },
+            group: 'jenis'
+        });
+
+        const map = {}
+        for (const item of rows) {
+            if (item.dataValues['jenis'] == 'Poliklinik') {
+                map['poliklinik'] = item.dataValues['total'] ? item.dataValues['total'] : 0
+            } else if (item.dataValues['jenis'] == 'IGD') {
+                map['igd'] = item.dataValues['total'] ? item.dataValues['total'] : 0
+            }
+        }
+
+        return map
+
+    } catch (error) {
+        console.error(error);
+    }
 }
