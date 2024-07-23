@@ -3,29 +3,15 @@ const sequelize = require('../config/database');
 exports.reportAllByKabupatenId = async (req, res) => {
     try {
         const { id } = req.params
-        const { startDate, endDate } = req.query
+        const { startDate, endDate, tipe, kategori } = req.query
 
-        const result = {}
-        // status
-        // parameter
-        // percentage
-        // -> count total
-        // 
-        // sub_rawat_jalan
+        const result = {
+            "status": "OK"
+        }
+
+        result['parameter'] = await parameter(startDate, endDate, id, tipe, kategori)
         result['presentase_wilayah'] = await percentage('kabupaten', id)
-
-        // sub Rawat Jalan
         result['sub_rawat_jalan'] = await subRawatJalan('kabupaten', id)
-
-        const raw = await sequelize.query("SELECT * FROM dc_pasien LIMIT 1", {
-            type: sequelize.QueryTypes.SELECT
-        })
-
-        const data = raw.map(data => ({
-            kabupaten: data.nama
-        }))
-
-        result['kabupaten'] = data
 
         res.status(200).json(result);
     } catch (error) {
@@ -34,7 +20,34 @@ exports.reportAllByKabupatenId = async (req, res) => {
     }
 }
 
-async function subRawatJalan(area, id) {
+async function parameter(startDate, endDate, id, tipe, kategori) {
+    try {
+        const kabupaten = await sequelize.query(`SELECT nama FROM dc_kabupaten WHERE id=${id}`, {
+            type: sequelize.QueryTypes.SELECT
+        })
+
+        const start = new Date(startDate);
+        const end = new Date(endDate)
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+
+        const startDateInd = start.toLocaleDateString('id-ID', options);
+        const endDateInd = end.toLocaleDateString('id-ID', options)
+
+        const data = {
+            "tipe": tipe,
+            "date": startDateInd + " s.d " + endDateInd,
+            "kabupaten": kabupaten[0].nama,
+            "kategori": kategori
+        }
+
+        return data
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function subRawatJalan(area, id, startDate, endDate) {
     try {
         let query = "SELECT jenis, COUNT(*) as total FROM dc_pendaftaran" +
             " JOIN dc_pasien on dc_pendaftaran.id_pasien = dc_pasien.id" +
