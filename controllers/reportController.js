@@ -115,10 +115,10 @@ async function percentage(area, id, startDate, endDate) {
             " LEFT JOIN dc_kelurahan on dc_kelurahan.id_kecamatan = dc_kecamatan.id" +
             " LEFT JOIN dc_pasien on dc_pasien.id_kelurahan = dc_kelurahan.id" +
             " LEFT JOIN dc_pendaftaran on dc_pendaftaran.id_pasien = dc_pasien.id " +
-            ` AND dc_pendaftaran.waktu_daftar >= ${startDate}` +
-            ` AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
             " INNER JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id " +
             ` WHERE dc_kabupaten.id = ${id}` +
+            ` AND dc_pendaftaran.waktu_daftar >= ${startDate}` +
+            ` AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
             " GROUP BY dc_kecamatan.nama" +
             " HAVING total > 0"
 
@@ -135,6 +135,8 @@ async function subAreaData(area, id, startDate, endDate, areaData) {
     try {
         const result = []
 
+        let show = true
+
         for (const kecamatan of areaData) {
             const data = {
                 "area": kecamatan.nama,
@@ -149,9 +151,9 @@ async function subAreaData(area, id, startDate, endDate, areaData) {
                 " LEFT JOIN dc_kelurahan ON dc_kecamatan.id = dc_kelurahan.id_kecamatan" +
                 " LEFT JOIN dc_pasien ON dc_kelurahan.id = dc_pasien.id_kelurahan" +
                 " LEFT JOIN dc_pendaftaran ON dc_pasien.id = dc_pendaftaran.id_pasien" +
-                ` AND dc_pendaftaran.waktu_daftar >= ${startDate} AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
                 " INNER JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id" +
                 ` WHERE dc_kecamatan.id = ${id}` +
+                ` AND dc_pendaftaran.waktu_daftar >= ${startDate} AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
                 " GROUP BY dc_kelurahan.id" +
                 " HAVING total > 0"
 
@@ -160,6 +162,8 @@ async function subAreaData(area, id, startDate, endDate, areaData) {
             })
 
             result.push(data)
+
+            if (show) console.log(query); show = false
         }
 
         return result
