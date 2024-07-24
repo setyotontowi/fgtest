@@ -14,7 +14,7 @@ exports.reportAllByKabupatenId = async (req, res) => {
         const percentArea = await percentage('kabupaten', id, startDate, endDate)
         result['presentase_wilayah'] = percentArea.map(item => ({
             'nama': item.nama,
-            'percentage': item.percentage
+            'percentage': parseFloat(item.percentage).toFixed(2) + " %"
         }))
 
         result['sub_rawat_jalan'] = await subRawatJalan('kabupaten', id, startDate, endDate)
@@ -119,7 +119,8 @@ async function percentage(area, id, startDate, endDate) {
             ` AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
             " INNER JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id " +
             ` WHERE dc_kabupaten.id = ${id}` +
-            " GROUP BY dc_kecamatan.nama"
+            " GROUP BY dc_kecamatan.nama" +
+            " HAVING total > 0"
 
         return sequelize.query(query, {
             type: sequelize.QueryTypes.SELECT
@@ -133,7 +134,7 @@ async function percentage(area, id, startDate, endDate) {
 async function subAreaData(area, id, startDate, endDate, areaData) {
     try {
         const result = []
-        let show = true
+
         for (const kecamatan of areaData) {
             const data = {
                 "area": kecamatan.nama,
@@ -151,16 +152,13 @@ async function subAreaData(area, id, startDate, endDate, areaData) {
                 ` AND dc_pendaftaran.waktu_daftar >= ${startDate} AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
                 " INNER JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id" +
                 ` WHERE dc_kecamatan.id = ${id}` +
-                " GROUP BY dc_kelurahan.id"
+                " GROUP BY dc_kelurahan.id" +
+                " HAVING total > 0"
 
             data["sub_area"] = await sequelize.query(query, {
                 type: sequelize.QueryTypes.SELECT
             })
 
-            if (show) {
-                console.log(query)
-                show = false
-            }
             result.push(data)
         }
 
