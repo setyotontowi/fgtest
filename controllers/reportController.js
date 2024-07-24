@@ -112,10 +112,10 @@ async function percentage(area, id, startDate, endDate) {
 
         // Count Percentage
         query = `SELECT dc_kecamatan.id, dc_kecamatan.nama, COUNT(dc_pendaftaran.id) as total, COALESCE(COUNT(dc_pendaftaran.id)/${t}*100, 0) as percentage FROM dc_kecamatan` +
-            " LEFT JOIN dc_kelurahan on dc_kelurahan.id_kecamatan = dc_kecamatan.id" +
-            " LEFT JOIN dc_pasien on dc_pasien.id_kelurahan = dc_kelurahan.id" +
-            " LEFT JOIN dc_pendaftaran on dc_pendaftaran.id_pasien = dc_pasien.id " +
-            " INNER JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id " +
+            " JOIN dc_kelurahan on dc_kelurahan.id_kecamatan = dc_kecamatan.id" +
+            " JOIN dc_pasien on dc_pasien.id_kelurahan = dc_kelurahan.id" +
+            " JOIN dc_pendaftaran on dc_pendaftaran.id_pasien = dc_pasien.id " +
+            " JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id " +
             ` WHERE dc_kabupaten.id = ${id}` +
             ` AND dc_pendaftaran.waktu_daftar >= ${startDate}` +
             ` AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
