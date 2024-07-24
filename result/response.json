@@ -1,0 +1,1817 @@
+{
+    "status": "OK",
+    "parameter": {
+        "tipe": "harian",
+        "date": "1 Januari 2022 s.d 31 Oktober 2022",
+        "kabupaten": "Banjarnegara",
+        "kategori": "kelurahan"
+    },
+    "presentase_wilayah": [
+        {
+            "nama": "Banjarmangu",
+            "percentage": "0.61 %"
+        },
+        {
+            "nama": "Banjarnegara",
+            "percentage": "1.44 %"
+        },
+        {
+            "nama": "Batur",
+            "percentage": "0.04 %"
+        },
+        {
+            "nama": "Bawang",
+            "percentage": "5.81 %"
+        },
+        {
+            "nama": "Kalibening",
+            "percentage": "0.70 %"
+        },
+        {
+            "nama": "Karangkobar",
+            "percentage": "0.53 %"
+        },
+        {
+            "nama": "kutabanjar",
+            "percentage": "0.08 %"
+        },
+        {
+            "nama": "Madukara",
+            "percentage": "0.54 %"
+        },
+        {
+            "nama": "Mandiraja",
+            "percentage": "25.95 %"
+        },
+        {
+            "nama": "Pagendongan",
+            "percentage": "0.65 %"
+        },
+        {
+            "nama": "Pagentan",
+            "percentage": "0.38 %"
+        },
+        {
+            "nama": "Pandanarum",
+            "percentage": "0.28 %"
+        },
+        {
+            "nama": "Pejawaran",
+            "percentage": "0.47 %"
+        },
+        {
+            "nama": "Punggelan",
+            "percentage": "2.76 %"
+        },
+        {
+            "nama": "Purwanegara",
+            "percentage": "35.79 %"
+        },
+        {
+            "nama": "Purwareja Klampok",
+            "percentage": "2.37 %"
+        },
+        {
+            "nama": "Rakit",
+            "percentage": "18.59 %"
+        },
+        {
+            "nama": "Sigaluh",
+            "percentage": "0.46 %"
+        },
+        {
+            "nama": "Susukan",
+            "percentage": "0.38 %"
+        },
+        {
+            "nama": "Wanadadi",
+            "percentage": "1.44 %"
+        },
+        {
+            "nama": "Wanayasa",
+            "percentage": "0.74 %"
+        }
+    ],
+    "sub_rawat_jalan": [
+        {
+            "jenis": "Poliklinik",
+            "total": 13641
+        },
+        {
+            "jenis": "IGD",
+            "total": 5804
+        }
+    ],
+    "sub_area_data": [
+        {
+            "area": "Banjarmangu",
+            "total": 119,
+            "sub_area": [
+                {
+                    "nama": "Kendaga",
+                    "total": 3,
+                    "igd": 2,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Paseh",
+                    "total": 5,
+                    "igd": 2,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Sijenggung",
+                    "total": 2,
+                    "igd": 1,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Sijeruk",
+                    "total": 5,
+                    "igd": 3,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Sipedang",
+                    "total": 8,
+                    "igd": 1,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Banjarkulon",
+                    "total": 12,
+                    "igd": 5,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Banjarmangu",
+                    "total": 5,
+                    "igd": 1,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Beji",
+                    "total": 6,
+                    "igd": 5,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Gripit",
+                    "total": 8,
+                    "igd": 3,
+                    "poliklinik": 5
+                },
+                {
+                    "nama": "Jenggawur",
+                    "total": 11,
+                    "igd": 4,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Kalilunjar",
+                    "total": 4,
+                    "igd": 1,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Kesenet",
+                    "total": 12,
+                    "igd": 9,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Majatengah",
+                    "total": 7,
+                    "igd": 4,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Pekandangan",
+                    "total": 8,
+                    "igd": 5,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Prendengan",
+                    "total": 4,
+                    "igd": 1,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Rejasari",
+                    "total": 15,
+                    "igd": 7,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "SIGEBLOG",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                }
+            ]
+        },
+        {
+            "area": "Banjarnegara",
+            "total": 280,
+            "sub_area": [
+                {
+                    "nama": "Semarang",
+                    "total": 18,
+                    "igd": 7,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Parakancanggah",
+                    "total": 25,
+                    "igd": 12,
+                    "poliklinik": 13
+                },
+                {
+                    "nama": "Sokanandi",
+                    "total": 51,
+                    "igd": 18,
+                    "poliklinik": 33
+                },
+                {
+                    "nama": "Krandegan",
+                    "total": 19,
+                    "igd": 8,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Karangtengah",
+                    "total": 18,
+                    "igd": 11,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Wangon",
+                    "total": 8,
+                    "igd": 1,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Ampelsari",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Argasoka",
+                    "total": 31,
+                    "igd": 3,
+                    "poliklinik": 28
+                },
+                {
+                    "nama": "Cendana",
+                    "total": 5,
+                    "igd": 2,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Kutabanjarnegara",
+                    "total": 59,
+                    "igd": 18,
+                    "poliklinik": 41
+                },
+                {
+                    "nama": "Semampir",
+                    "total": 29,
+                    "igd": 4,
+                    "poliklinik": 25
+                },
+                {
+                    "nama": "Sokayasa",
+                    "total": 13,
+                    "igd": 6,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Tlagawera",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                }
+            ]
+        },
+        {
+            "area": "Batur",
+            "total": 8,
+            "sub_area": [
+                {
+                    "nama": "Batur",
+                    "total": 5,
+                    "igd": 1,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Karangtengah",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Pasurenan",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                }
+            ]
+        },
+        {
+            "area": "Bawang",
+            "total": 1130,
+            "sub_area": [
+                {
+                    "nama": "Bandingan",
+                    "total": 26,
+                    "igd": 3,
+                    "poliklinik": 23
+                },
+                {
+                    "nama": "Bawang",
+                    "total": 83,
+                    "igd": 13,
+                    "poliklinik": 70
+                },
+                {
+                    "nama": "Binorong",
+                    "total": 192,
+                    "igd": 74,
+                    "poliklinik": 118
+                },
+                {
+                    "nama": "Blambangan",
+                    "total": 41,
+                    "igd": 9,
+                    "poliklinik": 32
+                },
+                {
+                    "nama": "Depok",
+                    "total": 20,
+                    "igd": 9,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Gemuruh",
+                    "total": 84,
+                    "igd": 15,
+                    "poliklinik": 69
+                },
+                {
+                    "nama": "Joho",
+                    "total": 55,
+                    "igd": 19,
+                    "poliklinik": 36
+                },
+                {
+                    "nama": "Kebondalem",
+                    "total": 110,
+                    "igd": 30,
+                    "poliklinik": 80
+                },
+                {
+                    "nama": "Kutayasa",
+                    "total": 38,
+                    "igd": 13,
+                    "poliklinik": 25
+                },
+                {
+                    "nama": "Majalengka",
+                    "total": 84,
+                    "igd": 39,
+                    "poliklinik": 45
+                },
+                {
+                    "nama": "Mantrianom",
+                    "total": 26,
+                    "igd": 9,
+                    "poliklinik": 17
+                },
+                {
+                    "nama": "Masaran",
+                    "total": 10,
+                    "igd": 2,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Pucang",
+                    "total": 38,
+                    "igd": 9,
+                    "poliklinik": 29
+                },
+                {
+                    "nama": "Serang",
+                    "total": 29,
+                    "igd": 9,
+                    "poliklinik": 20
+                },
+                {
+                    "nama": "Wanadri",
+                    "total": 113,
+                    "igd": 38,
+                    "poliklinik": 75
+                },
+                {
+                    "nama": "Watuurip",
+                    "total": 34,
+                    "igd": 10,
+                    "poliklinik": 24
+                },
+                {
+                    "nama": "Winong",
+                    "total": 29,
+                    "igd": 14,
+                    "poliklinik": 15
+                },
+                {
+                    "nama": "Wiramastra",
+                    "total": 116,
+                    "igd": 42,
+                    "poliklinik": 74
+                },
+                {
+                    "nama": "SIBUGEL",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                }
+            ]
+        },
+        {
+            "area": "Kalibening",
+            "total": 136,
+            "sub_area": [
+                {
+                    "nama": "Asinan",
+                    "total": 3,
+                    "igd": 2,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Bedana",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Gununglangit",
+                    "total": 5,
+                    "igd": 3,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Kalibening",
+                    "total": 9,
+                    "igd": 8,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Kalibombong",
+                    "total": 14,
+                    "igd": 7,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Kalisat Kidul",
+                    "total": 17,
+                    "igd": 7,
+                    "poliklinik": 10
+                },
+                {
+                    "nama": "Kasinoman",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Kertasari",
+                    "total": 2,
+                    "igd": 1,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Majatengah",
+                    "total": 10,
+                    "igd": 8,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Plorengan",
+                    "total": 5,
+                    "igd": 1,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Sembawa",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Sidakangen",
+                    "total": 15,
+                    "igd": 9,
+                    "poliklinik": 6
+                },
+                {
+                    "nama": "Sikumpul",
+                    "total": 7,
+                    "igd": 3,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Sirukem",
+                    "total": 3,
+                    "igd": 2,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Sirukun",
+                    "total": 12,
+                    "igd": 4,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Kertosari",
+                    "total": 20,
+                    "igd": 9,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "KARANGANYAR",
+                    "total": 7,
+                    "igd": 3,
+                    "poliklinik": 4
+                }
+            ]
+        },
+        {
+            "area": "Karangkobar",
+            "total": 103,
+            "sub_area": [
+                {
+                    "nama": "Ambal",
+                    "total": 5,
+                    "igd": 4,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Binangun",
+                    "total": 3,
+                    "igd": 1,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Jlegong",
+                    "total": 3,
+                    "igd": 1,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Karanggondang",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Karangkobar",
+                    "total": 27,
+                    "igd": 9,
+                    "poliklinik": 18
+                },
+                {
+                    "nama": "Leksana",
+                    "total": 32,
+                    "igd": 12,
+                    "poliklinik": 20
+                },
+                {
+                    "nama": "Pagerpelah",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Pasuruhan",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Paweden",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Purwodadi",
+                    "total": 6,
+                    "igd": 6,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Sampang",
+                    "total": 10,
+                    "igd": 1,
+                    "poliklinik": 9
+                },
+                {
+                    "nama": "Slatri",
+                    "total": 5,
+                    "igd": 4,
+                    "poliklinik": 1
+                }
+            ]
+        },
+        {
+            "area": "kutabanjar",
+            "total": 15,
+            "sub_area": [
+                {
+                    "nama": "KUTABANJAR",
+                    "total": 15,
+                    "igd": 4,
+                    "poliklinik": 11
+                }
+            ]
+        },
+        {
+            "area": "Madukara",
+            "total": 105,
+            "sub_area": [
+                {
+                    "nama": "Bantarwaru",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Blitar",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Clapar",
+                    "total": 7,
+                    "igd": 4,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Dawuhan",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Gununggiana",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Kaliurip",
+                    "total": 16,
+                    "igd": 3,
+                    "poliklinik": 13
+                },
+                {
+                    "nama": "Karanganyar",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Kenteng",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Kutayasa",
+                    "total": 11,
+                    "igd": 3,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Limbangan",
+                    "total": 7,
+                    "igd": 0,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Madukara",
+                    "total": 3,
+                    "igd": 0,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Pagelak",
+                    "total": 11,
+                    "igd": 6,
+                    "poliklinik": 5
+                },
+                {
+                    "nama": "Pakelen",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Petambakan",
+                    "total": 11,
+                    "igd": 3,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Rakitan",
+                    "total": 12,
+                    "igd": 3,
+                    "poliklinik": 9
+                },
+                {
+                    "nama": "Rejasa",
+                    "total": 10,
+                    "igd": 4,
+                    "poliklinik": 6
+                },
+                {
+                    "nama": "Talunamba",
+                    "total": 7,
+                    "igd": 4,
+                    "poliklinik": 3
+                }
+            ]
+        },
+        {
+            "area": "Mandiraja",
+            "total": 5046,
+            "sub_area": [
+                {
+                    "nama": "Banjengan",
+                    "total": 148,
+                    "igd": 36,
+                    "poliklinik": 112
+                },
+                {
+                    "nama": "Blimbing",
+                    "total": 119,
+                    "igd": 37,
+                    "poliklinik": 82
+                },
+                {
+                    "nama": "Candiwulan",
+                    "total": 163,
+                    "igd": 46,
+                    "poliklinik": 117
+                },
+                {
+                    "nama": "Glempang",
+                    "total": 179,
+                    "igd": 58,
+                    "poliklinik": 121
+                },
+                {
+                    "nama": "Jalatunda",
+                    "total": 210,
+                    "igd": 74,
+                    "poliklinik": 136
+                },
+                {
+                    "nama": "Kaliwungu",
+                    "total": 283,
+                    "igd": 77,
+                    "poliklinik": 206
+                },
+                {
+                    "nama": "Kebakalan",
+                    "total": 255,
+                    "igd": 48,
+                    "poliklinik": 207
+                },
+                {
+                    "nama": "Kebanaran",
+                    "total": 233,
+                    "igd": 65,
+                    "poliklinik": 168
+                },
+                {
+                    "nama": "Kertayasa",
+                    "total": 628,
+                    "igd": 177,
+                    "poliklinik": 451
+                },
+                {
+                    "nama": "Mandiraja Kulon",
+                    "total": 574,
+                    "igd": 131,
+                    "poliklinik": 443
+                },
+                {
+                    "nama": "Mandiraja Wetan",
+                    "total": 878,
+                    "igd": 205,
+                    "poliklinik": 673
+                },
+                {
+                    "nama": "Panggisari",
+                    "total": 270,
+                    "igd": 86,
+                    "poliklinik": 184
+                },
+                {
+                    "nama": "Purwasaba",
+                    "total": 203,
+                    "igd": 60,
+                    "poliklinik": 143
+                },
+                {
+                    "nama": "Salamerta",
+                    "total": 74,
+                    "igd": 27,
+                    "poliklinik": 47
+                },
+                {
+                    "nama": "Simbang",
+                    "total": 99,
+                    "igd": 34,
+                    "poliklinik": 65
+                },
+                {
+                    "nama": "Somawangi",
+                    "total": 426,
+                    "igd": 107,
+                    "poliklinik": 319
+                },
+                {
+                    "nama": "MANDIRAJA KULON",
+                    "total": 304,
+                    "igd": 98,
+                    "poliklinik": 206
+                }
+            ]
+        },
+        {
+            "area": "Pagendongan",
+            "total": 126,
+            "sub_area": [
+                {
+                    "nama": "Duren",
+                    "total": 3,
+                    "igd": 3,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Gentansari",
+                    "total": 11,
+                    "igd": 5,
+                    "poliklinik": 6
+                },
+                {
+                    "nama": "Gunungjati",
+                    "total": 4,
+                    "igd": 1,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Kebutuhduwur",
+                    "total": 12,
+                    "igd": 7,
+                    "poliklinik": 5
+                },
+                {
+                    "nama": "Kebutuhjurang",
+                    "total": 14,
+                    "igd": 8,
+                    "poliklinik": 6
+                },
+                {
+                    "nama": "Lebakwangi",
+                    "total": 17,
+                    "igd": 5,
+                    "poliklinik": 12
+                },
+                {
+                    "nama": "Pagedongan",
+                    "total": 41,
+                    "igd": 18,
+                    "poliklinik": 23
+                },
+                {
+                    "nama": "Pesangkalan",
+                    "total": 13,
+                    "igd": 6,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Twelagiri",
+                    "total": 10,
+                    "igd": 7,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Gunungjati",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                }
+            ]
+        },
+        {
+            "area": "Pagentan",
+            "total": 74,
+            "sub_area": [
+                {
+                    "nama": "Aribaya",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Babadan",
+                    "total": 7,
+                    "igd": 2,
+                    "poliklinik": 5
+                },
+                {
+                    "nama": "Kalitlaga",
+                    "total": 10,
+                    "igd": 4,
+                    "poliklinik": 6
+                },
+                {
+                    "nama": "Karangnangka",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Karekan",
+                    "total": 6,
+                    "igd": 4,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Kasmaran",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Kayuares",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Larangan",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Majasari",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Metawana",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Nagasari",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Pagentan",
+                    "total": 19,
+                    "igd": 12,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Plumbungan",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Sokaraja",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Tegaljeruk",
+                    "total": 8,
+                    "igd": 6,
+                    "poliklinik": 2
+                }
+            ]
+        },
+        {
+            "area": "Pandanarum",
+            "total": 54,
+            "sub_area": [
+                {
+                    "nama": "Beji",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Lawen",
+                    "total": 10,
+                    "igd": 5,
+                    "poliklinik": 5
+                },
+                {
+                    "nama": "Pandanarum",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Pasegeran",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Pingit Lor",
+                    "total": 17,
+                    "igd": 7,
+                    "poliklinik": 10
+                },
+                {
+                    "nama": "Pringamba",
+                    "total": 5,
+                    "igd": 4,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Sirongge",
+                    "total": 18,
+                    "igd": 11,
+                    "poliklinik": 7
+                }
+            ]
+        },
+        {
+            "area": "Pejawaran",
+            "total": 92,
+            "sub_area": [
+                {
+                    "nama": "Biting",
+                    "total": 6,
+                    "igd": 4,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Condong Campur",
+                    "total": 3,
+                    "igd": 3,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Darmayasa",
+                    "total": 6,
+                    "igd": 3,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Giritirta",
+                    "total": 9,
+                    "igd": 6,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Grogol",
+                    "total": 2,
+                    "igd": 1,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Kalilunjar",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Karangsari",
+                    "total": 6,
+                    "igd": 3,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Pegundungan",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Sarwodadi",
+                    "total": 12,
+                    "igd": 3,
+                    "poliklinik": 9
+                },
+                {
+                    "nama": "Sidengok",
+                    "total": 14,
+                    "igd": 7,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Penusupan",
+                    "total": 22,
+                    "igd": 9,
+                    "poliklinik": 13
+                },
+                {
+                    "nama": "DERMAYASA",
+                    "total": 6,
+                    "igd": 4,
+                    "poliklinik": 2
+                }
+            ]
+        },
+        {
+            "area": "Punggelan",
+            "total": 536,
+            "sub_area": [
+                {
+                    "nama": "Bondolharjo",
+                    "total": 42,
+                    "igd": 25,
+                    "poliklinik": 17
+                },
+                {
+                    "nama": "Danakerta",
+                    "total": 29,
+                    "igd": 14,
+                    "poliklinik": 15
+                },
+                {
+                    "nama": "Jembangan",
+                    "total": 7,
+                    "igd": 4,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Karangsari",
+                    "total": 25,
+                    "igd": 9,
+                    "poliklinik": 16
+                },
+                {
+                    "nama": "Kecepit",
+                    "total": 8,
+                    "igd": 4,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Klapa",
+                    "total": 24,
+                    "igd": 3,
+                    "poliklinik": 21
+                },
+                {
+                    "nama": "Mlaya",
+                    "total": 21,
+                    "igd": 7,
+                    "poliklinik": 14
+                },
+                {
+                    "nama": "Petuguran",
+                    "total": 41,
+                    "igd": 19,
+                    "poliklinik": 22
+                },
+                {
+                    "nama": "Punggelan",
+                    "total": 24,
+                    "igd": 10,
+                    "poliklinik": 14
+                },
+                {
+                    "nama": "Purwasana",
+                    "total": 42,
+                    "igd": 18,
+                    "poliklinik": 24
+                },
+                {
+                    "nama": "Sambong",
+                    "total": 28,
+                    "igd": 15,
+                    "poliklinik": 13
+                },
+                {
+                    "nama": "Sawangan",
+                    "total": 14,
+                    "igd": 7,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Sidarata",
+                    "total": 29,
+                    "igd": 9,
+                    "poliklinik": 20
+                },
+                {
+                    "nama": "Tanjungtirta",
+                    "total": 40,
+                    "igd": 23,
+                    "poliklinik": 17
+                },
+                {
+                    "nama": "Tlaga",
+                    "total": 27,
+                    "igd": 20,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Tribuana",
+                    "total": 76,
+                    "igd": 19,
+                    "poliklinik": 57
+                },
+                {
+                    "nama": "Badakarya",
+                    "total": 59,
+                    "igd": 23,
+                    "poliklinik": 36
+                }
+            ]
+        },
+        {
+            "area": "Purwanegara",
+            "total": 6960,
+            "sub_area": [
+                {
+                    "nama": "Danaraja",
+                    "total": 1104,
+                    "igd": 288,
+                    "poliklinik": 816
+                },
+                {
+                    "nama": "Gumiwang",
+                    "total": 609,
+                    "igd": 158,
+                    "poliklinik": 451
+                },
+                {
+                    "nama": "Kaliajir",
+                    "total": 361,
+                    "igd": 107,
+                    "poliklinik": 254
+                },
+                {
+                    "nama": "Kalipelus",
+                    "total": 476,
+                    "igd": 141,
+                    "poliklinik": 335
+                },
+                {
+                    "nama": "Kalitengah",
+                    "total": 234,
+                    "igd": 60,
+                    "poliklinik": 174
+                },
+                {
+                    "nama": "Karanganyar",
+                    "total": 442,
+                    "igd": 100,
+                    "poliklinik": 342
+                },
+                {
+                    "nama": "Kutawuluh",
+                    "total": 144,
+                    "igd": 49,
+                    "poliklinik": 95
+                },
+                {
+                    "nama": "Merden",
+                    "total": 955,
+                    "igd": 170,
+                    "poliklinik": 785
+                },
+                {
+                    "nama": "Mertasari",
+                    "total": 494,
+                    "igd": 131,
+                    "poliklinik": 363
+                },
+                {
+                    "nama": "Parakan",
+                    "total": 339,
+                    "igd": 90,
+                    "poliklinik": 249
+                },
+                {
+                    "nama": "Petir",
+                    "total": 382,
+                    "igd": 127,
+                    "poliklinik": 255
+                },
+                {
+                    "nama": "Pucungbedug",
+                    "total": 322,
+                    "igd": 106,
+                    "poliklinik": 216
+                },
+                {
+                    "nama": "Purwonegoro",
+                    "total": 1091,
+                    "igd": 334,
+                    "poliklinik": 757
+                },
+                {
+                    "nama": "BANYUMUDAL",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "MUNTANGSARI",
+                    "total": 6,
+                    "igd": 2,
+                    "poliklinik": 4
+                }
+            ]
+        },
+        {
+            "area": "Purwareja Klampok",
+            "total": 461,
+            "sub_area": [
+                {
+                    "nama": "Kalilandak",
+                    "total": 57,
+                    "igd": 11,
+                    "poliklinik": 46
+                },
+                {
+                    "nama": "Kalimandi",
+                    "total": 102,
+                    "igd": 26,
+                    "poliklinik": 76
+                },
+                {
+                    "nama": "Kaliwinasuh",
+                    "total": 82,
+                    "igd": 26,
+                    "poliklinik": 56
+                },
+                {
+                    "nama": "Kecitran",
+                    "total": 19,
+                    "igd": 9,
+                    "poliklinik": 10
+                },
+                {
+                    "nama": "Klampok",
+                    "total": 87,
+                    "igd": 25,
+                    "poliklinik": 62
+                },
+                {
+                    "nama": "Pagak",
+                    "total": 19,
+                    "igd": 4,
+                    "poliklinik": 15
+                },
+                {
+                    "nama": "Purwareja",
+                    "total": 64,
+                    "igd": 14,
+                    "poliklinik": 50
+                },
+                {
+                    "nama": "Sirkandi",
+                    "total": 31,
+                    "igd": 9,
+                    "poliklinik": 22
+                }
+            ]
+        },
+        {
+            "area": "Rakit",
+            "total": 3615,
+            "sub_area": [
+                {
+                    "nama": "Gelang",
+                    "total": 401,
+                    "igd": 109,
+                    "poliklinik": 292
+                },
+                {
+                    "nama": "Pingit",
+                    "total": 632,
+                    "igd": 140,
+                    "poliklinik": 492
+                },
+                {
+                    "nama": "Adipasir",
+                    "total": 521,
+                    "igd": 119,
+                    "poliklinik": 402
+                },
+                {
+                    "nama": "Badamita",
+                    "total": 213,
+                    "igd": 82,
+                    "poliklinik": 131
+                },
+                {
+                    "nama": "Kincang",
+                    "total": 259,
+                    "igd": 105,
+                    "poliklinik": 154
+                },
+                {
+                    "nama": "Lengkong",
+                    "total": 186,
+                    "igd": 100,
+                    "poliklinik": 86
+                },
+                {
+                    "nama": "Luwung",
+                    "total": 55,
+                    "igd": 19,
+                    "poliklinik": 36
+                },
+                {
+                    "nama": "Situwangi",
+                    "total": 354,
+                    "igd": 113,
+                    "poliklinik": 241
+                },
+                {
+                    "nama": "Tanjunganom",
+                    "total": 134,
+                    "igd": 70,
+                    "poliklinik": 64
+                },
+                {
+                    "nama": "Bandingan",
+                    "total": 370,
+                    "igd": 106,
+                    "poliklinik": 264
+                },
+                {
+                    "nama": "Rakit",
+                    "total": 490,
+                    "igd": 171,
+                    "poliklinik": 319
+                }
+            ]
+        },
+        {
+            "area": "Sigaluh",
+            "total": 89,
+            "sub_area": [
+                {
+                    "nama": "Bandingan",
+                    "total": 3,
+                    "igd": 3,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Bojanegara",
+                    "total": 2,
+                    "igd": 1,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Gembongan",
+                    "total": 21,
+                    "igd": 10,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Kalibenda",
+                    "total": 14,
+                    "igd": 5,
+                    "poliklinik": 9
+                },
+                {
+                    "nama": "Kemiri",
+                    "total": 4,
+                    "igd": 1,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Panawaren",
+                    "total": 1,
+                    "igd": 0,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Prigi",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Pringamba",
+                    "total": 25,
+                    "igd": 11,
+                    "poliklinik": 14
+                },
+                {
+                    "nama": "Randegan",
+                    "total": 4,
+                    "igd": 2,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Sawal",
+                    "total": 6,
+                    "igd": 4,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Sigaluh",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Singomerto (Singamerta)",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Tunggara",
+                    "total": 4,
+                    "igd": 1,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "singamerta",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                }
+            ]
+        },
+        {
+            "area": "Susukan",
+            "total": 73,
+            "sub_area": [
+                {
+                    "nama": "Berta",
+                    "total": 8,
+                    "igd": 0,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Brengkok",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Derik",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Dermasari",
+                    "total": 16,
+                    "igd": 4,
+                    "poliklinik": 12
+                },
+                {
+                    "nama": "Gumelem Kulon",
+                    "total": 8,
+                    "igd": 1,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Gumelem Wetan",
+                    "total": 17,
+                    "igd": 13,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Karangjati",
+                    "total": 5,
+                    "igd": 3,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Karangsalam",
+                    "total": 2,
+                    "igd": 1,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Kedawung",
+                    "total": 2,
+                    "igd": 1,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Kemranggon",
+                    "total": 3,
+                    "igd": 0,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Panerusan Kulon",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Susukan",
+                    "total": 6,
+                    "igd": 2,
+                    "poliklinik": 4
+                }
+            ]
+        },
+        {
+            "area": "Wanadadi",
+            "total": 280,
+            "sub_area": [
+                {
+                    "nama": "Gumingsir",
+                    "total": 1,
+                    "igd": 1,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Kandangwangi",
+                    "total": 23,
+                    "igd": 11,
+                    "poliklinik": 12
+                },
+                {
+                    "nama": "Karangjambe",
+                    "total": 40,
+                    "igd": 8,
+                    "poliklinik": 32
+                },
+                {
+                    "nama": "Karangkemiri",
+                    "total": 10,
+                    "igd": 6,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Lemahjaya",
+                    "total": 23,
+                    "igd": 12,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Linggasari",
+                    "total": 11,
+                    "igd": 3,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Medayu",
+                    "total": 15,
+                    "igd": 7,
+                    "poliklinik": 8
+                },
+                {
+                    "nama": "Tapen",
+                    "total": 19,
+                    "igd": 8,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Wanadadi",
+                    "total": 69,
+                    "igd": 28,
+                    "poliklinik": 41
+                },
+                {
+                    "nama": "Wanakarsa",
+                    "total": 49,
+                    "igd": 15,
+                    "poliklinik": 34
+                },
+                {
+                    "nama": "KASILIB",
+                    "total": 20,
+                    "igd": 5,
+                    "poliklinik": 15
+                }
+            ]
+        },
+        {
+            "area": "Wanayasa",
+            "total": 143,
+            "sub_area": [
+                {
+                    "nama": "Bantar",
+                    "total": 12,
+                    "igd": 1,
+                    "poliklinik": 11
+                },
+                {
+                    "nama": "Dawuhan",
+                    "total": 3,
+                    "igd": 2,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Jatilawang",
+                    "total": 6,
+                    "igd": 5,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Karangtengah",
+                    "total": 9,
+                    "igd": 6,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Kasimpar",
+                    "total": 15,
+                    "igd": 8,
+                    "poliklinik": 7
+                },
+                {
+                    "nama": "Kubang",
+                    "total": 12,
+                    "igd": 10,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Legoksayem",
+                    "total": 11,
+                    "igd": 7,
+                    "poliklinik": 4
+                },
+                {
+                    "nama": "Pagergunung",
+                    "total": 8,
+                    "igd": 5,
+                    "poliklinik": 3
+                },
+                {
+                    "nama": "Pandansari",
+                    "total": 5,
+                    "igd": 3,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Penanggungan",
+                    "total": 12,
+                    "igd": 7,
+                    "poliklinik": 5
+                },
+                {
+                    "nama": "Pesantren",
+                    "total": 3,
+                    "igd": 3,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Susukan",
+                    "total": 2,
+                    "igd": 2,
+                    "poliklinik": 0
+                },
+                {
+                    "nama": "Suwidak",
+                    "total": 3,
+                    "igd": 2,
+                    "poliklinik": 1
+                },
+                {
+                    "nama": "Tempuran",
+                    "total": 2,
+                    "igd": 0,
+                    "poliklinik": 2
+                },
+                {
+                    "nama": "Wanaraja",
+                    "total": 18,
+                    "igd": 9,
+                    "poliklinik": 9
+                },
+                {
+                    "nama": "Wanayasa",
+                    "total": 22,
+                    "igd": 7,
+                    "poliklinik": 15
+                }
+            ]
+        }
+    ]
+}
