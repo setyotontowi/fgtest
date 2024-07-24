@@ -10,8 +10,15 @@ exports.reportAllByKabupatenId = async (req, res) => {
         }
 
         result['parameter'] = await parameter(startDate, endDate, id, tipe, kategori)
-        result['presentase_wilayah'] = await percentage('kabupaten', id, startDate, endDate)
+
+        const percentArea = await percentage('kabupaten', id, startDate, endDate)
+        result['presentase_wilayah'] = percentArea.map(item => ({
+            'nama': item.nama,
+            'percentage': item.percentage
+        }))
+
         result['sub_rawat_jalan'] = await subRawatJalan('kabupaten', id, startDate, endDate)
+        result['sub_area_data'] = await subAreaData('kabupaten', id, startDate, endDate, percentArea)
 
         res.status(200).json(result);
     } catch (error) {
@@ -49,7 +56,7 @@ async function parameter(startDate, endDate, id, tipe, kategori) {
 
 async function subRawatJalan(area, id, startDate, endDate) {
     try {
-        let query = "SELECT jenis, COUNT(*) as total FROM dc_pendaftaran" +
+        let query = "SELECT jenis, COUNT(dc_pendaftaran.id) as total FROM dc_pendaftaran" +
             " JOIN dc_pasien on dc_pendaftaran.id_pasien = dc_pasien.id" +
             " JOIN dc_kelurahan on dc_pasien.id_kelurahan = dc_kelurahan.id"
 
@@ -73,7 +80,7 @@ async function percentage(area, id, startDate, endDate) {
     try {
 
         // Count Total
-        let query = "SELECT COUNT(*) as total FROM dc_pendaftaran" +
+        let query = "SELECT COUNT(dc_pendaftaran.id) as total FROM dc_pendaftaran" +
             " INNER JOIN dc_pasien on dc_pendaftaran.id_pasien = dc_pasien.id" +
             " INNER JOIN dc_kelurahan on dc_pasien.id_kelurahan = dc_kelurahan.id"
 
@@ -95,6 +102,8 @@ async function percentage(area, id, startDate, endDate) {
             }
         }
 
+        console.log(query)
+
         const total = await sequelize.query(query, {
             type: sequelize.QueryTypes.SELECT
         })
@@ -102,7 +111,7 @@ async function percentage(area, id, startDate, endDate) {
         const t = total[0] ? total[0].total : 0
 
         // Count Percentage
-        query = `SELECT dc_kecamatan.nama, COALESCE(COUNT(*)/${t}*100, 0) as percentage FROM dc_kecamatan` +
+        query = `SELECT dc_kecamatan.id, dc_kecamatan.nama, COUNT(dc_pendaftaran.id) as total, COALESCE(COUNT(dc_pendaftaran.id)/${t}*100, 0) as percentage FROM dc_kecamatan` +
             " LEFT JOIN dc_kelurahan on dc_kelurahan.id_kecamatan = dc_kecamatan.id" +
             " LEFT JOIN dc_pasien on dc_pasien.id_kelurahan = dc_kelurahan.id" +
             " LEFT JOIN dc_pendaftaran on dc_pendaftaran.id_pasien = dc_pasien.id " +
@@ -115,6 +124,47 @@ async function percentage(area, id, startDate, endDate) {
         return sequelize.query(query, {
             type: sequelize.QueryTypes.SELECT
         })
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function subAreaData(area, id, startDate, endDate, areaData) {
+    try {
+        const result = []
+        let show = true
+        for (const kecamatan of areaData) {
+            const data = {
+                "area": kecamatan.nama,
+                "total": kecamatan.total
+            }
+
+            const id = kecamatan.id
+            const query = "SELECT dc_kelurahan.nama, COUNT(dc_pendaftaran.id) as total, " +
+                " CAST(SUM(CASE WHEN dc_pendaftaran.jenis = 'igd' THEN 1 ELSE 0 END) AS INTEGER) AS igd," +
+                " CAST(SUM(CASE WHEN dc_pendaftaran.jenis = 'poliklinik' THEN 1 ELSE 0 END) AS INTEGER) AS poliklinik" +
+                " FROM dc_kecamatan" +
+                " LEFT JOIN dc_kelurahan ON dc_kecamatan.id = dc_kelurahan.id_kecamatan" +
+                " LEFT JOIN dc_pasien ON dc_kelurahan.id = dc_pasien.id_kelurahan" +
+                " LEFT JOIN dc_pendaftaran ON dc_pasien.id = dc_pendaftaran.id_pasien" +
+                ` AND dc_pendaftaran.waktu_daftar >= ${startDate} AND dc_pendaftaran.waktu_daftar <= ${endDate}` +
+                " INNER JOIN dc_kabupaten ON dc_kecamatan.id_kabupaten = dc_kabupaten.id" +
+                ` WHERE dc_kecamatan.id = ${id}` +
+                " GROUP BY dc_kelurahan.id"
+
+            data["sub_area"] = await sequelize.query(query, {
+                type: sequelize.QueryTypes.SELECT
+            })
+
+            if (show) {
+                console.log(query)
+                show = false
+            }
+            result.push(data)
+        }
+
+        return result
 
     } catch (error) {
         console.error(error)
