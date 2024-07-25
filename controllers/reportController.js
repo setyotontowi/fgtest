@@ -145,8 +145,8 @@ async function subAreaData(area, id, startDate, endDate, areaData) {
 
             const id = kecamatan.id
             const query = "SELECT dc_kelurahan.nama, COUNT(dc_pendaftaran.id) as total, " +
-                " CAST(SUM(CASE WHEN dc_pendaftaran.jenis = 'igd' THEN 1 ELSE 0 END) AS INTEGER) AS igd," +
-                " CAST(SUM(CASE WHEN dc_pendaftaran.jenis = 'poliklinik' THEN 1 ELSE 0 END) AS INTEGER) AS poliklinik" +
+                " SUM(CASE WHEN dc_pendaftaran.jenis = 'igd' THEN 1 ELSE 0 END) AS igd," +
+                " SUM(CASE WHEN dc_pendaftaran.jenis = 'poliklinik' THEN 1 ELSE 0 END) AS poliklinik" +
                 " FROM dc_kecamatan" +
                 " LEFT JOIN dc_kelurahan ON dc_kecamatan.id = dc_kelurahan.id_kecamatan" +
                 " LEFT JOIN dc_pasien ON dc_kelurahan.id = dc_pasien.id_kelurahan" +
